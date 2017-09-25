@@ -4,8 +4,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="MiniWeather"
+        android:icon="@mipmap/logo"
+        android:label="小Q天气"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -17,5 +17,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>
