@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int UPDATE_TODAY_WEATHER = 1;
     private ImageView mUpdateBtn;
     private ImageView mSelectCity;
-    private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv, temperatureTv, climateTv, windTv, city_name_Tv,temperaturn_now_Tv;
+    private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv, temperatureTv, climateTv, windTv, city_name_Tv,temperaturn_now_Tv,pic;
     private ImageView weatherImg, pmImg;
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 put("中雨",R.drawable.biz_plugin_weather_zhongyu);
             }
         };
-        int main_weather = R.drawable.biz_plugin_weather_qing;;
+        int main_weather = R.drawable.biz_plugin_weather_qing;
         try{
             main_weather = imgWeather.get(todayWeather.getType());
         }catch(NullPointerException e ) {
