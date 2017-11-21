@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <RelativeLayout
+    android:id="@+id/search_city"
     android:layout_width="fill_parent"
     android:layout_height="45dip"
     android:background="#da0c0c">
@@ -29,4 +30,16 @@
         android:layout_toRightOf="@+id/title_back"
         android:background="#A81717" />
 </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/city_name"
+        android:layout_below="@+id/search_city">
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_list"></ListView>
+
+    </RelativeLayout>
 </RelativeLayout>
