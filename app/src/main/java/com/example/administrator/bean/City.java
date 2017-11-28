@@ -11,7 +11,7 @@ public class City {
     private String firstPY;
     private String allPY;
     private String allFristPY;
-
+//定义City的结构
 public City(String province,String city,String number,String firstPY,String allPY,String allFristPY){
     this.province = province;
     this.city = city;

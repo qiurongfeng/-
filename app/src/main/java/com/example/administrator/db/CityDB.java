@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.administrator.bean.City;
 
-import java.sql.SQLData;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +23,7 @@ public class CityDB {
             }
     public List<City> getAllCity() {
         List<City> list = new ArrayList<City>();
+        //查询数据库操作
         Cursor c = db.rawQuery("SELECT * from " + CITY_TABLE_NAME, null);
         while (c.moveToNext()) {
             String province = c.getString(c.getColumnIndex("province"));

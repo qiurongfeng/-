@@ -120,13 +120,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/temperature_now_num"
-                android:layout_below="@+id/temperature_now"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30.0dip"
                 android:text="36℃"
                 android:singleLine="true"
                 android:textColor="@android:color/white"
-                android:textSize="40dip"/>
+                android:textSize="40dip"
+                android:layout_below="@+id/temperature_now"
+                android:layout_alignLeft="@+id/temperature_now"
+                android:layout_alignStart="@+id/temperature_now" />
 
             <ImageView
                 android:layout_width="wrap_content"

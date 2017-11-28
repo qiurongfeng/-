@@ -24,16 +24,20 @@ public class MyApplication extends Application{
                 private CityDB mCityDB;
                 private List<City> mCityList;
     @Override
+    //一个activity启动调用的第一个函数就是onCreate,初始化数据库
                 public void onCreate(){
                     super.onCreate();
                     Log.d(TAG,"MyApplication->Oncreate");
                     myApplication = this;
+        //
                     mCityDB = openCityDB();
+        //初始化数据库文件下的city列表
                     initCityList();
                 }
-
+//onCreate方法中调用的初始化方法
     private void initCityList(){
         mCityList = new ArrayList<City>();
+        //创建一个子线程，用来打开数据库文件
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -45,12 +49,14 @@ public class MyApplication extends Application{
     private boolean prepareCityList() {
         mCityList = mCityDB.getAllCity();
         int i=0;
+        //循环取出列表中的数据
         for (City city : mCityList) {
             i++;
             String cityName = city.getCity();
             String cityCode = city.getNumber();
             Log.d(TAG,cityCode+":"+cityName);
         }
+        //打印数据
         Log.d(TAG,"i="+i);
         return true;
     }
@@ -60,6 +66,7 @@ public class MyApplication extends Application{
     public static MyApplication getInstance(){
                     return myApplication;
                 }
+    //打开数据库文件的方法
     private CityDB openCityDB() {
         String path = "/data" + Environment.getDataDirectory().getAbsolutePath()
                 + File.separator + getPackageName()
@@ -68,6 +75,7 @@ public class MyApplication extends Application{
                 + CityDB.CITY_DB_NAME;
         File db = new File(path);
         Log.d(TAG,path);
+        //数据库文件不存在，则创建
         if (!db.exists()) {
             String pathfolder = "/data"
                     + Environment.getDataDirectory().getAbsolutePath()
