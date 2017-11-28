@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int flag = 1;
     private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv, temperatureTv, climateTv, windTv, city_name_Tv,temperaturn_now_Tv,pic;
     private ImageView weatherImg, pmImg;
+    private ProgressBar updatePro;
     //用Handler来更新   UI
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         climateTv = (TextView) findViewById(R.id.climate);
         windTv = (TextView) findViewById(R.id.wind);
         weatherImg = (ImageView) findViewById(R.id.weather_img);
+        updatePro = (ProgressBar)findViewById(R.id.title_update_progress);
         city_name_Tv.setText("N/A");
         cityTv.setText("N/A");
         timeTv.setText("N/A");
@@ -107,7 +110,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this,SelectCity.class);
             startActivityForResult(i,1);
         }
-        if (view.getId() == R.id.title_update_btn) ;
+        if (view.getId() == R.id.title_update_btn){
+            mUpdateBtn.setVisibility(View.GONE);
+            updatePro.setVisibility(View.VISIBLE);
+        }
         //引用 SharedPreferences存储变量获得citycode的数据
         SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
         String citycode = sharedPreferences.getString("cityCode", "101010100");
@@ -116,7 +122,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d("myWeather", "网络OK");
 //            Toast.makeText(MainActivity.this, "网络OK！", Toast.LENGTH_LONG).show();
             //进行一次从城市的查询
+
             queryWeatherCode(citycode);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mUpdateBtn.setVisibility(View.VISIBLE);
+                    updatePro.setVisibility(View.GONE);
+                }
+            }, 1000);
+
         } else {
             Log.d("myWeather", "网络挂了");
             Toast.makeText(MainActivity.this, "网络挂了！", Toast.LENGTH_LONG).show();
