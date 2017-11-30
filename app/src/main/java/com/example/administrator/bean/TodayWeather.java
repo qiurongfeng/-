@@ -17,6 +17,126 @@ public class TodayWeather {
     private String high;
     private String low;
     private String type;
+    private String date_day1;
+    private String high_day1;
+    private String low_day1;
+    private String type_day1;
+    private String date_day2;
+    private String high_day2;
+    private String low_day2;
+    private String type_day2;
+    private String date_day3;
+    private String high_day3;
+    private String low_day3;
+    private String type_day3;
+    private String date_day4;
+    private String high_day4;
+    private String low_day4;
+    private String type_day4;
+    private String date_day5;
+    private String high_day5;
+    private String low_day5;
+    private String type_day5;
+    private String date_day6;
+    private String high_day6;
+    private String low_day6;
+    private String type_day6;
+
+    public String getHigh_day1() {
+        return high_day1;
+    }
+
+    public String getLow_day1() {
+        return low_day1;
+    }
+
+    public String getType_day1() {
+        return type_day1;
+    }
+
+    public String getDate_day2() {
+        return date_day2;
+    }
+
+    public String getHigh_day2() {
+        return high_day2;
+    }
+
+    public String getLow_day2() {
+        return low_day2;
+    }
+
+    public String getType_day2() {
+        return type_day2;
+    }
+
+    public String getDate_day3() {
+        return date_day3;
+    }
+
+    public String getHigh_day3() {
+        return high_day3;
+    }
+
+    public String getLow_day3() {
+        return low_day3;
+    }
+
+    public String getType_day3() {
+        return type_day3;
+    }
+
+    public String getDate_day4() {
+        return date_day4;
+    }
+
+    public String getHigh_day4() {
+        return high_day4;
+    }
+
+    public String getLow_day4() {
+        return low_day4;
+    }
+
+    public String getType_day4() {
+        return type_day4;
+    }
+
+    public String getDate_day5() {
+        return date_day5;
+    }
+
+    public String getHigh_day5() {
+        return high_day5;
+    }
+
+    public String getLow_day5() {
+        return low_day5;
+    }
+
+    public String getType_day5() {
+        return type_day5;
+    }
+
+    public String getDate_day6() {
+        return date_day6;
+    }
+
+    public String getHigh_day6() {
+        return high_day6;
+    }
+
+    public String getLow_day6() {
+        return low_day6;
+    }
+
+    public String getType_day6() {
+        return type_day6;
+    }
+
+    public String getDate_day1() {
+        return date_day1;
+    }
 
     public String getCity() {
         return city;
@@ -114,6 +234,18 @@ public class TodayWeather {
         this.type = type;
     }
 
+    public void setDate_day1(String date_day1) {
+        this.date_day1 = date_day1;
+    }
+
+    public void setHigh_day1(String high_day1) {
+        this.high_day1 = high_day1;
+    }
+
+    public void setLow_day1(String low_day1) {
+        this.low_day1 = low_day1;
+    }
+
     @Override
     public String toString() {
         return "TodayWeather{" +
@@ -129,6 +261,115 @@ public class TodayWeather {
                 ", high='" + high + '\'' +
                 ", low='" + low + '\'' +
                 ", type='" + type + '\'' +
+                ", date_day1='" + date_day1 + '\'' +
+                ", high_day1='" + high_day1 + '\'' +
+                ", low_day1='" + low_day1 + '\'' +
+                ", type_day1='" + type_day1 + '\'' +
+                ", date_day2='" + date_day2 + '\'' +
+                ", high_day2='" + high_day2 + '\'' +
+                ", low_day2='" + low_day2 + '\'' +
+                ", type_day2='" + type_day2 + '\'' +
+                ", date_day3='" + date_day3 + '\'' +
+                ", high_day3='" + high_day3 + '\'' +
+                ", low_day3='" + low_day3 + '\'' +
+                ", type_day3='" + type_day3 + '\'' +
+                ", date_day4='" + date_day4 + '\'' +
+                ", high_day4='" + high_day4 + '\'' +
+                ", low_day4='" + low_day4 + '\'' +
+                ", type_day4='" + type_day4 + '\'' +
+                ", date_day5='" + date_day5 + '\'' +
+                ", high_day5='" + high_day5 + '\'' +
+                ", low_day5='" + low_day5 + '\'' +
+                ", type_day5='" + type_day5 + '\'' +
+                ", date_day6='" + date_day6 + '\'' +
+                ", high_day6='" + high_day6 + '\'' +
+                ", low_day6='" + low_day6 + '\'' +
+                ", type_day6='" + type_day6 + '\'' +
                 '}';
     }
+
+    public void setType_day1(String type_day1) {
+        this.type_day1 = type_day1;
+    }
+
+    public void setDate_day2(String date_day2) {
+        this.date_day2 = date_day2;
+    }
+
+    public void setHigh_day2(String high_day2) {
+        this.high_day2 = high_day2;
+    }
+
+    public void setLow_day2(String low_day2) {
+        this.low_day2 = low_day2;
+    }
+
+    public void setType_day2(String type_day2) {
+        this.type_day2 = type_day2;
+    }
+
+    public void setDate_day3(String date_day3) {
+        this.date_day3 = date_day3;
+    }
+
+    public void setHigh_day3(String high_day3) {
+        this.high_day3 = high_day3;
+    }
+
+    public void setLow_day3(String low_day3) {
+        this.low_day3 = low_day3;
+    }
+
+    public void setType_day3(String type_day3) {
+        this.type_day3 = type_day3;
+    }
+
+    public void setDate_day4(String date_day4) {
+        this.date_day4 = date_day4;
+    }
+
+    public void setHigh_day4(String high_day4) {
+        this.high_day4 = high_day4;
+    }
+
+    public void setLow_day4(String low_day4) {
+        this.low_day4 = low_day4;
+    }
+
+    public void setType_day4(String type_day4) {
+        this.type_day4 = type_day4;
+    }
+
+    public void setDate_day5(String date_day5) {
+        this.date_day5 = date_day5;
+    }
+
+    public void setHigh_day5(String high_day5) {
+        this.high_day5 = high_day5;
+    }
+
+    public void setLow_day5(String low_day5) {
+        this.low_day5 = low_day5;
+    }
+
+    public void setType_day5(String type_day5) {
+        this.type_day5 = type_day5;
+    }
+
+    public void setDate_day6(String date_day6) {
+        this.date_day6 = date_day6;
+    }
+
+    public void setHigh_day6(String high_day6) {
+        this.high_day6 = high_day6;
+    }
+
+    public void setLow_day6(String low_day6) {
+        this.low_day6 = low_day6;
+    }
+
+    public void setType_day6(String type_day6) {
+        this.type_day6 = type_day6;
+    }
+
 }
