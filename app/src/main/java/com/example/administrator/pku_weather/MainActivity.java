@@ -132,19 +132,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updatePro = (ProgressBar)findViewById(R.id.title_update_progress);
         LayoutInflater layout=this.getLayoutInflater();
         View view=layout.inflate(R.layout.page1, null);
-        temperatureTv_day1=(TextView)view.findViewById(R.id.temperature_day1);
+//        temperatureTv_day1=(TextView)view.findViewById(R.id.temperature_day1);
 //        temperatureTv_day1 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.temperature_day1);
-        climateTv_day1 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.climate_day1);
-        weather_day1 = (ImageView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.weather_img_day1);
-        weekTv_day1  = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.week_day1);
-        temperatureTv_day2 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.temperature_day2);
-        climateTv_day2 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.climate_day2);
-        weather_day2 = (ImageView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.weather_img_day2);
-        weekTv_day2  = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.week_day2);
-        temperatureTv_day3 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.temperature_day3);
-        climateTv_day3 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.climate_day3);
-        weather_day3 = (ImageView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.weather_img_day3);
-        weekTv_day3  = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.week_day3);
+//        climateTv_day1 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.climate_day1);
+//        weather_day1 = (ImageView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.weather_img_day1);
+//        weekTv_day1  = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.week_day1);
+//        temperatureTv_day2 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.temperature_day2);
+//        climateTv_day2 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.climate_day2);
+//        weather_day2 = (ImageView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.weather_img_day2);
+//        weekTv_day2  = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.week_day2);
+//        temperatureTv_day3 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.temperature_day3);
+//        climateTv_day3 = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.climate_day3);
+//        weather_day3 = (ImageView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.weather_img_day3);
+//        weekTv_day3  = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.page1, null).findViewById(R.id.week_day3);
         city_name_Tv.setText("N/A");
         cityTv.setText("N/A");
         timeTv.setText("N/A");
@@ -382,6 +382,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             eventType = xmlPullParser.next();
                             todayWeather.setType_day3(xmlPullParser.getText());
                             typeCount++;
+                        }else if (xmlPullParser.getName().equals("date") && dateCount == 4) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setDate_day4(xmlPullParser.getText());
+                            dateCount++;
+                        } else if (xmlPullParser.getName().equals("high") && highCount == 4) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setHigh_day4(xmlPullParser.getText());
+                            highCount++;
+                        } else if (xmlPullParser.getName().equals("low") && lowCount == 4) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setLow_day4(xmlPullParser.getText());
+                            lowCount++;
+                        } else if (xmlPullParser.getName().equals("type") && typeCount == 4) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setType_day4(xmlPullParser.getText());
+                            typeCount++;
+                        }else if (xmlPullParser.getName().equals("date_1")) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setDate_day0(xmlPullParser.getText());
+//                            dateCount++;
+                        } else if (xmlPullParser.getName().equals("high_1")) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setHigh_day0(xmlPullParser.getText());
+//                            highCount++;
+                        } else if (xmlPullParser.getName().equals("low_1")) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setLow_day0(xmlPullParser.getText());
+//                            lowCount++;
+                        } else if (xmlPullParser.getName().equals("type_1")) {
+                            eventType = xmlPullParser.next();
+                            todayWeather.setType_day0(xmlPullParser.getText());
+//                            typeCount++;
                         }
                     }
                         break;
@@ -399,16 +431,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return todayWeather;
     }
+    //刷新界面
+//    public  void onFresh(){
+//        TodayWeather todayWeather = new
+//        ViewPagesAdapter.ViewHolder holder = (ViewPagesAdapter.ViewHolder)views.get(0).getTag();
+//        holder.temperatureTv_day1.setText(todayWeather.getType_day1());
+//        holder.climateTv_day1.setText("1231");
+//        holder.weekTv_day1.setText("2313");
+//    }
 //该方法用于更新UI
     void updateTodayWeather(TodayWeather todayWeather){
-        String high = todayWeather.getHigh().substring(2);
-        String low = todayWeather.getLow().substring(2);
-        String high_day1 = todayWeather.getHigh_day1().substring(2);
-        String low_day1 = todayWeather.getLow_day1().substring(2);
-        String high_day2 = todayWeather.getHigh_day2().substring(2);
-        String low_day2 = todayWeather.getLow_day2().substring(2);
-        String high_day3 = todayWeather.getHigh_day3().substring(2);
-        String low_day3 = todayWeather.getLow_day3().substring(2);
+        String high = null;
+        String low = null;
+        String high_day0 = null;
+        String low_day0 = null;
+        String high_day1 = null;
+        String low_day1 = null;
+        String high_day2 = null;
+        String low_day2 = null;
+        String high_day3 = null;
+        String low_day3 = null;
+        String high_day4 = null;
+        String low_day4 = null;
+
+        if (todayWeather.getHigh()!=null && todayWeather.getLow()!=null ){
+             high = todayWeather.getHigh().substring(2);
+             low = todayWeather.getLow().substring(2);
+        }
+        if (todayWeather.getHigh_day0()!=null && todayWeather.getLow_day0()!=null ){
+             high_day0 = todayWeather.getHigh_day0().substring(2);
+             low_day0 = todayWeather.getLow_day0().substring(2);
+        }
+        if (todayWeather.getHigh_day1()!=null && todayWeather.getLow_day1()!=null ){
+             high_day1 = todayWeather.getHigh_day1().substring(2);
+             low_day1 = todayWeather.getLow_day1().substring(2);
+        }
+        if (todayWeather.getHigh_day2()!=null && todayWeather.getLow_day2()!=null ){
+             high_day2 = todayWeather.getHigh_day2().substring(2);
+             low_day2 = todayWeather.getLow_day2().substring(2);
+        }
+        if (todayWeather.getHigh_day3()!=null && todayWeather.getLow_day3()!=null ){
+             high_day3 = todayWeather.getHigh_day3().substring(2);
+             low_day3 = todayWeather.getLow_day3().substring(2);
+        }
+        if (todayWeather.getHigh_day4()!=null && todayWeather.getLow_day4()!=null ){
+             high_day4 = todayWeather.getHigh_day4().substring(2);
+             low_day4 = todayWeather.getLow_day4().substring(2);
+        }
+
         city_name_Tv.setText(todayWeather.getCity()+"天气");
         cityTv.setText(todayWeather.getCity());
         timeTv.setText(todayWeather.getUpdatetime()+ "发布");
@@ -420,10 +490,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         climateTv.setText(todayWeather.getType());
         windTv.setText("风力:"+todayWeather.getFengli());
         temperaturn_now_Tv.setText(todayWeather.getWendu() + "℃");
-        Intent intent = new Intent(MainActivity.this, Page1.class);
-        intent.putExtra("climateTv_day1", todayWeather.getType_day1());
-            startActivity(intent);
-
+//        Intent intent = new Intent(MainActivity.this, Page1.class);
+//        intent.putExtra("climateTv_day1", todayWeather.getType_day1());
+//            startActivity(intent);
+        //更新viewpager的界面
+        //页面1
+        ViewPagesAdapter.ViewHolder holder = (ViewPagesAdapter.ViewHolder)views.get(0).getTag();
+        holder.temperatureTv_day1.setText(low_day0+"~"+high_day0);
+        holder.climateTv_day1.setText(todayWeather.getType_day0());
+        holder.weekTv_day1.setText(todayWeather.getDate_day0());
+        holder.temperatureTv_day2.setText(low+"~"+high);
+        holder.climateTv_day2.setText(todayWeather.getType());
+        holder.weekTv_day2.setText(todayWeather.getDate());
+        holder.temperatureTv_day3.setText(low_day1+"~"+high_day1);
+        holder.climateTv_day3.setText(todayWeather.getType_day1());
+        holder.weekTv_day3.setText(todayWeather.getDate_day1());
+        //页面2
+        ViewPagesAdapter.ViewHolder holder2 = (ViewPagesAdapter.ViewHolder)views.get(1).getTag();
+        holder2.temperatureTv_day4.setText(low_day2+"~"+high_day2);
+        holder2.climateTv_day4.setText(todayWeather.getType_day2());
+        holder2.weekTv_day4.setText(todayWeather.getDate_day2());
+        holder2.temperatureTv_day5.setText(low_day3+"~"+high_day3);
+        holder2.climateTv_day5.setText(todayWeather.getType_day3());
+        holder2.weekTv_day5.setText(todayWeather.getDate_day3());
+        holder2.temperatureTv_day6.setText(low_day4+"~"+high_day4);
+        holder2.climateTv_day6.setText(todayWeather.getType_day4());
+        holder2.weekTv_day6.setText(todayWeather.getDate_day4());
 
 
 //        climateTv_day1.setText("1321313");
@@ -457,27 +549,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 put("阵雨",R.mipmap.biz_plugin_weather_zhenxue);
                 put("中雪",R.mipmap.biz_plugin_weather_zhongxue);
                 put("中雨",R.mipmap.biz_plugin_weather_zhongyu);
+                put(null,R.mipmap.biz_plugin_weather_zhongyu);
             }
         };
         int main_weather = R.mipmap.biz_plugin_weather_qing;
         int main_weather_day1 = R.mipmap.biz_plugin_weather_qing;
         int main_weather_day2 = R.mipmap.biz_plugin_weather_qing;
         int main_weather_day3 = R.mipmap.biz_plugin_weather_qing;
+        int main_weather_day4 = R.mipmap.biz_plugin_weather_qing;
+        int main_weather_day5 = R.mipmap.biz_plugin_weather_qing;
+        int main_weather_day6 = R.mipmap.biz_plugin_weather_qing;
         try{
             main_weather = imgWeather.get(todayWeather.getType());
-            main_weather_day1 = imgWeather.get(todayWeather.getType_day1());
-            main_weather_day2 = imgWeather.get(todayWeather.getType_day2());
-            main_weather_day3 = imgWeather.get(todayWeather.getType_day3());
-
+            main_weather_day1 = imgWeather.get(todayWeather.getType_day0());
+            main_weather_day2 = imgWeather.get(todayWeather.getType());
+            main_weather_day3 = imgWeather.get(todayWeather.getType_day1());
+            main_weather_day4 = imgWeather.get(todayWeather.getType_day2());
+            main_weather_day5 = imgWeather.get(todayWeather.getType_day3());
+            main_weather_day6 = imgWeather.get(todayWeather.getType_day4());
         }catch(NullPointerException e ) {
             Log.d("myweather", "没有这样的天气类型");
         }
         weatherImg.setImageDrawable(getResources().getDrawable(main_weather));
-        weather_day1.setImageDrawable(getResources().getDrawable(main_weather_day1));
-        weather_day2.setImageDrawable(getResources().getDrawable(main_weather_day2));
-        weather_day3.setImageDrawable(getResources().getDrawable(main_weather_day3));
+//        weather_day1.setImageDrawable(getResources().getDrawable(main_weather_day1));
+//        weather_day2.setImageDrawable(getResources().getDrawable(main_weather_day2));
+//        weather_day3.setImageDrawable(getResources().getDrawable(main_weather_day3));
 //        weatherImg.setImageDrawable(getResources().getDrawable(main_weather_day2));
 //        weatherImg.setImageDrawable(getResources().getDrawable(main_weather_day3));
+        holder.weather_day1.setImageDrawable(getResources().getDrawable(main_weather_day1));
+        holder.weather_day2.setImageDrawable(getResources().getDrawable(main_weather_day2));
+        holder.weather_day3.setImageDrawable(getResources().getDrawable(main_weather_day3));
+        holder2.weather_day4.setImageDrawable(getResources().getDrawable(main_weather_day4));
+        holder2.weather_day5.setImageDrawable(getResources().getDrawable(main_weather_day5));
+        holder2.weather_day6.setImageDrawable(getResources().getDrawable(main_weather_day6));
         String pmNum = todayWeather.getPm25();
         int i = 0;
         //若pm2.5无数据则不显示数值，若有，则显示数值
