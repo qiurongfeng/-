@@ -70,7 +70,7 @@ public class MyApplication extends Application{
     private CityDB openCityDB() {
         String path = "/data" + Environment.getDataDirectory().getAbsolutePath()
                 + File.separator + getPackageName()
-                + File.separator + "databases1"
+                + File.separator + "databases2"
                 + File.separator
                 + CityDB.CITY_DB_NAME;
         File db = new File(path);
@@ -80,7 +80,7 @@ public class MyApplication extends Application{
             String pathfolder = "/data"
                     + Environment.getDataDirectory().getAbsolutePath()
                     + File.separator + getPackageName()
-                    + File.separator + "databases1"
+                    + File.separator + "databases2"
                     + File.separator;
             File dirFirstFolder = new File(pathfolder);
             if(!dirFirstFolder.exists()){

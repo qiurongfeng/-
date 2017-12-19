@@ -31,6 +31,7 @@ public class Guide extends Activity implements ViewPager.OnPageChangeListener{
         setContentView(R.layout.guide);
         initViews();
         initDots();
+
     }
     void initDots(){
         dots = new ImageView[views.size()];
