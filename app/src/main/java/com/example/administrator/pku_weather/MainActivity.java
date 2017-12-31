@@ -626,7 +626,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mUpdateBtn.setOnClickListener(this);
         mSelectCity = (ImageView)findViewById(R.id.title_city_manage);
         mSelectCity.setOnClickListener(this);
-
     }
 
 }
